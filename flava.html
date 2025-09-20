@@ -83,9 +83,18 @@
   h1{margin:.2rem 0 1rem; text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; line-height:1.05}
   .lead{margin:.25rem 0 1rem}
 
+  /* === BLOQUE DEL CÓDIGO (lila + blanco) === */
   .code{
-    display:inline-block; font-weight:800; font-size:1.9rem; letter-spacing:.6px;
-    padding:.25em .6em; border:3px dashed var(--flava-black); border-radius:12px; user-select:all; background:#fff;
+    display:inline-block;
+    font-weight:800;
+    font-size:1.9rem;
+    letter-spacing:.6px;
+    padding:.25em .6em;
+    background: var(--flava-purple);   /* lila */
+    color:#fff;                         /* texto blanco */
+    border:3px dashed var(--flava-black); /* borde discontinuo */
+    border-radius:12px;
+    user-select:all;
     cursor:pointer;
   }
 
@@ -97,7 +106,9 @@
     box-shadow:0 4px 0 #000;
   }
   .btn.secondary{background:#fff; color:var(--flava-black)}
+  .btn.purple{background:var(--flava-purple); color:var(--flava-black); border-color:var(--flava-black)}
   .btn:hover{background:var(--flava-purple); color:var(--flava-black)}
+  .btn.purple:hover{background:#fff}
   .btn:disabled{opacity:.65; cursor:not-allowed}
 
   .tabs{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:.5rem 0 1rem}
@@ -171,7 +182,7 @@
     <div class="top-bar">
       <div class="menu-left">
         <a href="https://www.instagram.com/flavafest.pe/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@flavafest" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.tiktok.com/@keenfest" target="_blank" rel="noopener">TikTok</a>
       </div>
       <div class="menu-center">
         <div class="fecha">11 OCT — LIMA, PERÚ</div>
@@ -240,12 +251,11 @@
     <section class="card" id="sobre-mi" style="margin-top:18px; text-align:left">
       <h2 style="margin:0 0 .5rem; text-transform:uppercase; font-family:'De Fonte Plus Demi Gras',sans-serif">¿Quién soy?</h2>
 
-      <!-- Párrafo suavizado -->
       <p style="margin:.4rem 0">
         ¡Holaaa :D! Te saluda <b>Keenscy Sánchez</b>. Actualmente soy 
         <b>promotor de eventos de música electrónica en el Perú</b>: colaboro con la 
-        <b>difusión</b>, <b>publicidad</b> y <b>venta de entradas</b> de distintos shows, 
-        <b>principalmente en TikTok</b> y, recientemente, también en <b>Instagram</b>.
+        <b>difusión</b> y <b>publicidad</b> de los eventos <b>(principalmente en TikTok y, recientemente, en Instagram)</b> 
+        y, por separado, también apoyo con la <b>venta de entradas</b>.
       </p>
 
       <p style="margin:.4rem 0">
@@ -253,15 +263,15 @@
         Además, <b>gestiono una comunidad grande</b> que asiste a shows en todo el país.
       </p>
 
-      <!-- Orden: TikTok primero; RaveUnity con estilo "secondary" igual que TikTok -->
+      <!-- TikTok y RaveUnity en lila; Instagram en negro -->
       <div class="row" style="justify-content:flex-start; margin-top:.6rem">
-        <a class="btn secondary" href="https://www.tiktok.com/@keenfest" target="_blank" rel="noopener" aria-label="Seguir en TikTok">
+        <a class="btn purple" href="https://www.tiktok.com/@keenfest" target="_blank" rel="noopener" aria-label="Seguir en TikTok">
           🎵 Seguir en TikTok
         </a>
         <a class="btn" href="https://www.instagram.com/keenfest/?hl=es" target="_blank" rel="noopener" aria-label="Seguir en Instagram">
           📸 Seguir en Instagram
         </a>
-        <a class="btn secondary" href="https://chat.whatsapp.com/GQFKKNLr5a614OFhy7HKk8" target="_blank" rel="noopener" aria-label="Unirme a la comunidad en WhatsApp">
+        <a class="btn purple" href="https://chat.whatsapp.com/GQFKKNLr5a614OFhy7HKk8" target="_blank" rel="noopener" aria-label="Unirme a la comunidad en WhatsApp">
           💬 RaveUnity — Comunidad WhatsApp
         </a>
       </div>
