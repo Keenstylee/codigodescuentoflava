@@ -171,3 +171,234 @@
     <div class="top-bar">
       <div class="menu-left">
         <a href="https://www.instagram.com/flavafest.pe/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@flavafest" target="_blank" rel="noopener">TikTok</a>
+      </div>
+      <div class="menu-center">
+        <div class="fecha">11 OCT — LIMA, PERÚ</div>
+        <div class="titulo">FLAVA FEST · 2025</div>
+      </div>
+      <div class="menu-right">
+        <a href="https://prime.joinnus.com/landing/flava-festival" target="_blank" rel="noopener">Comprar en Joinnus</a>
+      </div>
+    </div>
+
+    <div class="bottom-bar" aria-hidden="true">
+      <div class="marquee-content">
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- AVISO DE CONFIANZA (aparece primero) -->
+    <section class="notice" id="notice" role="region" aria-label="Aviso importante">
+      <div class="row">
+        <div class="txt">
+          <p class="title">⚠️ Nota importante</p>
+          <p><b>Esta no es una página de venta ni de cobro.</b> Es una página informativa para facilitar el canje:
+          <b>copia el código <span aria-label="código">KEENSTYLES</span> y te redirige a Joinnus</b>, donde realizarás la compra de forma segura.</p>
+          <p><small>No solicitamos datos personales, contraseñas ni métodos de pago.</small></p>
+        </div>
+        <button class="btn-close" type="button" id="closeNotice" aria-label="Entendido, continuar">Entendido</button>
+      </div>
+    </section>
+
+    <!-- Tarjeta principal -->
+    <div class="card" aria-live="polite">
+      <div class="badge">🎟️ Código de descuento para entradas</div>
+      <h1>Activa tu 20% de descuento</h1>
+      <p class="lead">Pega este código en el campo <b>“Código de descuento”</b> del checkout para tu 20% de descuento:</p>
+      <p class="code" id="code" title="Haz clic para copiar">KEENSTYLES</p>
+
+      <div class="row">
+        <button class="btn secondary" id="copy">Copiar código</button>
+      </div>
+
+      <p><small>Elige dónde obtener el descuento:</small></p>
+      <div class="tabs" role="tablist" aria-label="Destino">
+        <button class="tab active" id="tab-general" data-dest="general">🎫 Entradas generales</button>
+        <button class="tab" id="tab-boxes" data-dest="boxes">🧊 Boxes – Urban Stage</button>
+      </div>
+
+      <div class="row">
+        <button class="btn" id="start">Continuar</button>
+      </div>
+
+      <p class="msg" id="msg">Al abrir Joinnus, <b>pega el código</b> para tu <b>20% de descuento</b> en tus entradas.</p>
+      <p><small>Tip: si no se copia automáticamente, selecciona el código y cópialo manualmente.</small></p>
+    </div>
+
+    <!-- ===== Sobre mí + Redes ===== -->
+    <section class="card" id="sobre-mi" style="margin-top:18px; text-align:left">
+      <h2 style="margin:0 0 .5rem; text-transform:uppercase; font-family:'De Fonte Plus Demi Gras',sans-serif">¿Quién soy?</h2>
+      <p style="margin:.4rem 0">
+        ¡Hola! Buenas tardes, te saluda <b>Keenscy Sánchez</b>, promotor y publicista de eventos de electrónica en el Perú.
+        Actualmente colaboro con la mayoría de promotoras del género en el país.
+      </p>
+
+      <p style="margin:.4rem 0">
+        Además de colaborar con promotoras, tengo acuerdos para realizar publicidad en <b>Instagram</b> y <b>TikTok</b>.
+        En mis redes verás contenido exclusivo de eventos de música electrónica. <b>Gestiono una comunidad grande</b> que asiste a conciertos y festivales en todo el país.
+      </p>
+
+      <div class="row" style="justify-content:flex-start; margin-top:.6rem">
+        <a class="btn" href="https://www.instagram.com/keenfest/?hl=es" target="_blank" rel="noopener" aria-label="Seguir en Instagram">
+          📸 Seguir en Instagram
+        </a>
+        <a class="btn secondary" href="https://www.tiktok.com/@keenfest" target="_blank" rel="noopener" aria-label="Seguir en TikTok">
+          🎵 Seguir en TikTok
+        </a>
+        <a class="btn" href="https://chat.whatsapp.com/GQFKKNLr5a614OFhy7HKk8" target="_blank" rel="noopener" aria-label="Unirme a la comunidad en WhatsApp">
+          💬 Unirme a RaveUnity (WhatsApp)
+        </a>
+      </div>
+
+      <p style="margin:.8rem 0 0; opacity:.85">
+        ✅ Compra segura: <b>esta página no vende ni cobra</b>. Solo copia tu código y te lleva a Joinnus/taquilla oficial.
+        Nunca solicito contraseñas ni datos de tarjetas.
+      </p>
+    </section>
+  </main>
+
+  <!-- Modal estilizado -->
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-describedby="m-desc">
+    <div class="modal" tabindex="-1">
+      <div class="badge-mini">Confirmación de canje</div>
+      <h2 id="m-title">¿Listo/a para continuar?</h2>
+      <p class="sub" id="m-desc">Copiamos tu código <span class="pill">KEENSTYLES</span>. Abriremos <b id="m-dest">Entradas generales</b> para que lo <b>pegues y obtengas tu 20% de descuento</b>.</p>
+
+      <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+      <p class="sub">Abrimos en <span id="sec" class="count">5</span> segundos…</p>
+
+      <div class="actions">
+        <button class="btn" id="openNow">Abrir ahora</button>
+        <button class="btn secondary" id="cancel">Cancelar</button>
+      </div>
+
+      <button class="sr-only" id="sentinelStart">init</button>
+      <button class="sr-only" id="sentinelEnd">end</button>
+    </div>
+  </div>
+
+  <!-- input oculto como fallback para copiar -->
+  <input id="hidden" value="KEENSTYLES" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+
+<script>
+(function(){
+  const CODE = "KEENSTYLES";
+  const URLS = {
+    general: "https://www.joinnus.com/events/festivales/lima-flava-festival-70366/canje",
+    boxes:   "https://www.joinnus.com/events/festivales/lima-flava-festival-boxes-urban-stage-70399/canje"
+  };
+
+  const params = new URLSearchParams(location.search);
+  const destParam = (params.get("dest")||"").toLowerCase();
+  const tParam = parseInt(params.get("t")||"",10);
+  const tDefault = Number.isFinite(tParam) && tParam>0 ? tParam : 5;
+
+  const msg = document.getElementById('msg');
+  const startBtn = document.getElementById('start');
+  const copyBtn = document.getElementById('copy');
+  const hidden = document.getElementById('hidden');
+  const tabGeneral = document.getElementById('tab-general');
+  const tabBoxes = document.getElementById('tab-boxes');
+  const tabs = [tabGeneral, tabBoxes];
+
+  const modal = document.getElementById('modal');
+  const sec = document.getElementById('sec');
+  const mDest = document.getElementById('m-dest');
+  const openNow = document.getElementById('openNow');
+  const cancel = document.getElementById('cancel');
+  const sentinelStart = document.getElementById('sentinelStart');
+  const sentinelEnd = document.getElementById('sentinelEnd');
+  const bar = document.getElementById('bar');
+
+  const notice = document.getElementById('notice');
+  const closeNotice = document.getElementById('closeNotice');
+
+  let timer = null, t = tDefault, DEST = "general";
+
+  // Cerrar aviso
+  closeNotice.addEventListener('click', ()=> notice.style.display = 'none');
+
+  function setDest(d){
+    DEST = d;
+    tabs.forEach(b=>b.classList.toggle('active', b.dataset.dest===d));
+    msg.textContent = d==="boxes"
+      ? "Destino seleccionado: Boxes – Urban Stage. Al abrir Joinnus, pega el código para tu 20% de descuento."
+      : "Destino seleccionado: Entradas generales. Al abrir Joinnus, pega el código para tu 20% de descuento.";
+  }
+
+  if(destParam==="boxes" || destParam==="general") setDest(destParam);
+  else setDest("general");
+
+  tabGeneral.addEventListener('click', ()=> setDest("general"));
+  tabBoxes.addEventListener('click', ()=> setDest("boxes"));
+
+  async function copyCode(){
+    try{
+      if(navigator.clipboard?.writeText){
+        await navigator.clipboard.writeText(CODE);
+      }else{
+        hidden.focus(); hidden.select();
+        const ok = document.execCommand && document.execCommand('copy');
+        if(!ok) throw new Error('execCommand falló');
+      }
+      msg.textContent = "✅ Código copiado. Pégalo en el checkout para tu 20% de descuento.";
+      return true;
+    }catch(e){
+      msg.textContent = "ℹ️ No se pudo copiar automáticamente. Puedes seleccionar y copiar el código manualmente.";
+      return false;
+    }
+  }
+
+  // Copiar con botón y al hacer clic en el código
+  copyBtn.addEventListener('click', copyCode);
+  document.getElementById('code').addEventListener('click', copyCode);
+
+  function openModal(){
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('show');
+    mDest.textContent = DEST === 'boxes' ? 'Boxes – Urban Stage' : 'Entradas generales';
+    t = tDefault; sec.textContent = t;
+    bar.style.width = '0%';
+    const total = tDefault;
+    timer = setInterval(()=>{
+      t--; sec.textContent = t;
+      const progress = ((total - t) / total) * 100;
+      bar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+      if(t<=0){
+        clearInterval(timer);
+        go();
+      }
+    }, 1000);
+    setTimeout(()=>sentinelStart.focus(), 0);
+  }
+  function closeModal(){
+    if(timer) clearInterval(timer);
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    startBtn.disabled = false;
+  }
+  function go(){ window.location.href = URLS[DEST]; }
+
+  sentinelStart.addEventListener('focus', ()=> openNow.focus());
+  sentinelEnd.addEventListener('focus', ()=> cancel.focus());
+
+  startBtn.addEventListener('click', async ()=>{
+    startBtn.disabled = true;
+    await copyCode();
+    openModal();
+  });
+  openNow.addEventListener('click', go);
+  cancel.addEventListener('click', closeModal);
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
+})();
+</script>
+</body>
+</html>
