@@ -3,91 +3,370 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLAVA FEST – Descuento</title>
-
-<!-- Fallback extremo: si nada carga JS, redirige en 4s -->
-<meta http-equiv="refresh" content="4;url=https://www.joinnus.com/events/festivales/lima-flava-festival-70366/canje">
+<title>FLAVA FEST — Código de Descuento</title>
 
 <style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-       padding:24px; line-height:1.5; max-width:720px; margin:auto; text-align:center}
-  .card{border:1px solid #ddd; border-radius:16px; padding:20px; box-shadow:0 4px 16px rgba(0,0,0,.06)}
-  h1{font-size:1.5rem; margin:0 0 8px}
-  .code{font-weight:700; font-size:1.25rem; letter-spacing:.5px}
-  .btn{display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none; border:1px solid #ccc; cursor:pointer}
-  .muted{opacity:.8}
+  :root{
+    --flava-yellow:#d6ff00;
+    --flava-black:#000;
+    --flava-purple:#a87efb;
+    --radius:28px;
+  }
+  html,body{height:100%}
+  body{
+    margin:0; padding:0;
+    font-family:'De Fonte Plus Normale','De Fonte Plus Demi Gras',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    background:var(--flava-yellow);
+    color:var(--flava-black);
+    display:flex; flex-direction:column; min-height:100vh;
+  }
+  header{background:var(--flava-yellow)}
+  .top-bar{
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+    padding:1rem 1.25rem;
+  }
+  .menu-left, .menu-right{display:flex; gap:1rem; align-items:center}
+  .menu-left a, .menu-right a{color:var(--flava-black); text-decoration:none; text-transform:uppercase; font-size:1rem}
+  .menu-left a:hover, .menu-right a:hover{text-decoration:underline}
+  .menu-center{display:flex; align-items:center; gap:1rem; text-transform:uppercase}
+  .titulo{font-family:'De Fonte Plus Demi Gras', sans-serif; font-size:1.2rem; line-height:1}
+  .fecha{font-size:1rem; text-align:right; line-height:1}
+
+  .bottom-bar{
+    position:relative; overflow:hidden; height:2.2rem;
+    border-top:2px solid var(--flava-black);
+    border-bottom:2px solid var(--flava-black);
+    background:var(--flava-yellow); display:flex; align-items:center;
+  }
+  .marquee-content{
+    display:inline-block; white-space:nowrap; animation:scroll 40s linear infinite;
+    font-size:1rem; text-transform:uppercase;
+  }
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  main{display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.2rem 1rem 5rem; text-align:center}
+
+  /* ===== Aviso de confianza ===== */
+  .notice{
+    width:min(920px, 92%);
+    background:#fff;
+    border:2px solid var(--flava-black);
+    border-radius:14px;
+    box-shadow:0 6px 0 var(--flava-black);
+    padding:14px 16px;
+    margin:8px auto 18px;
+    text-align:left;
+  }
+  .notice .row{display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+  .notice .txt{flex:1 1 520px}
+  .notice .title{font-weight:800; text-transform:uppercase; margin:0 0 4px}
+  .notice p{margin:.25rem 0}
+  .notice .btn-close{
+    appearance:none; background:#fff; color:var(--flava-black);
+    border:2px solid var(--flava-black); border-radius:999px; padding:10px 14px;
+    font-weight:800; text-transform:uppercase; cursor:pointer; white-space:nowrap;
+  }
+  .notice .btn-close:hover{background:var(--flava-purple); color:var(--flava-black)}
+  .notice small{opacity:.85}
+
+  /* ===== Card principal ===== */
+  .card{
+    border:2px solid var(--flava-black);
+    background:#fff;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 6px 0 var(--flava-black);
+    max-width:860px; width:min(92%,860px);
+  }
+  .badge{display:inline-block; font-weight:700; font-size:.9rem; padding:.25em .6em;
+    border-radius:999px; border:2px solid var(--flava-black); margin-bottom:10px; background:#fff}
+  h1{margin:.2rem 0 1rem; text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; line-height:1.05}
+  .lead{margin:.25rem 0 1rem}
+
+  .code{
+    display:inline-block; font-weight:800; font-size:1.9rem; letter-spacing:.6px;
+    padding:.25em .6em; border:3px dashed var(--flava-black); border-radius:12px; user-select:all; background:#fff;
+    cursor:pointer;
+  }
+
+  .row{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:.6rem 0}
+  .btn{
+    display:inline-block; padding:14px 22px; border-radius:var(--radius);
+    text-decoration:none; border:2px solid var(--flava-black); cursor:pointer; background:var(--flava-black); color:#fff;
+    letter-spacing:.4px; text-transform:uppercase; font-weight:700;
+    box-shadow:0 4px 0 #000;
+  }
+  .btn.secondary{background:#fff; color:var(--flava-black)}
+  .btn:hover{background:var(--flava-purple); color:var(--flava-black)}
+  .btn:disabled{opacity:.65; cursor:not-allowed}
+
+  .tabs{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:.5rem 0 1rem}
+  .tab{
+    padding:10px 14px; border-radius:999px; border:2px solid var(--flava-black);
+    cursor:pointer; background:#fff; text-transform:uppercase; font-weight:700;
+  }
+  .tab.active{background:var(--flava-black); color:#fff}
+
+  .msg{margin-top:10px; opacity:.95}
+  small{opacity:.8}
+
+  .presentado-por{position:fixed; bottom:22px; left:22px; font-size:.75rem; font-weight:bold; line-height:1.25}
+  .presentado-por img{margin-top:.4rem; max-width:220px; height:auto}
+
+  /* ===== Modal ===== */
+  .modal-backdrop{
+    position:fixed; inset:0;
+    background:radial-gradient(1200px 1200px at 50% 40%, rgba(255,255,255,.85), rgba(214,255,0,.7) 60%, rgba(214,255,0,.1) 100%);
+    backdrop-filter:saturate(110%) blur(2px);
+    display:none; align-items:center; justify-content:center;
+    padding:16px; z-index:50;
+  }
+  .modal{
+    position:relative;
+    background:#fff;
+    border:3px solid var(--flava-black);
+    border-radius:24px;
+    width:min(92%,620px);
+    padding:22px;
+    text-align:center;
+    box-shadow:
+      0 0 0 2px #fff inset,
+      0 10px 0 var(--flava-black),
+      0 20px 30px rgba(0,0,0,.15);
+  }
+  .modal:before,.modal:after{
+    content:""; position:absolute; width:18px; height:18px; border-radius:50%;
+    background:var(--flava-black);
+    top:-9px;
+  }
+  .modal:before{left:-9px}
+  .modal:after{right:-9px}
+  .modal h2{
+    margin:.2rem 0 .6rem;
+    text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; letter-spacing:.5px;
+  }
+  .modal .sub{margin:0 auto .8rem; max-width:520px; line-height:1.35;}
+  .pill{display:inline-block; padding:.25em .6em; border:3px dashed var(--flava-black);
+        border-radius:12px; font-weight:800; letter-spacing:.5px; background:#fff;}
+  .badge-mini{display:inline-block; font-weight:700; font-size:.8rem; padding:.2em .6em;
+    border-radius:999px; border:2px solid var(--flava-black); background:#fff; margin-bottom:.4rem;}
+  .progress{margin:.6rem auto 0; height:14px; width:min(92%,460px);
+    border:2px solid var(--flava-black); border-radius:999px; background:#fff; overflow:hidden; box-shadow:inset 0 2px 0 rgba(0,0,0,.06);}
+  .bar{height:100%; width:0%; background:linear-gradient(90deg, var(--flava-black), var(--flava-purple)); transition:width .2s linear;}
+  .actions{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:14px}
+  .modal-backdrop.show{display:flex}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;}
+
+  @media (max-width:768px){
+    .top-bar{grid-template-columns:1fr; text-align:center; gap:.5rem}
+    .menu-left,.menu-right{display:none}
+    .titulo{font-size:1.1rem}
+    .fecha{text-align:center}
+    .presentado-por{position:static; margin-top:1rem}
+  }
 </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Aplicando tu descuento…</h1>
-    <p>Tu código <span class="code">KEENSTYLES</span> se copiará automáticamente y te llevaremos al canje.</p>
-    <p class="muted">Si no te redirige solo, toca aquí:</p>
-    <p><a class="btn" id="go" href="https://www.joinnus.com/events/festivales/lima-flava-festival-70366/canje">Ir al canje en Joinnus</a></p>
-    <p class="muted">¿No se copió? <button class="btn" id="copyBtn" type="button">Copiar código</button></p>
+  <header>
+    <div class="top-bar">
+      <div class="menu-left">
+        <a href="https://www.instagram.com/flavafest.pe/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@flavafest" target="_blank" rel="noopener">TikTok</a>
+      </div>
+      <div class="menu-center">
+        <div class="fecha">11 OCT — LIMA, PERÚ</div>
+        <div class="titulo">FLAVA FEST · 2025</div>
+      </div>
+      <div class="menu-right">
+        <a href="https://prime.joinnus.com/landing/flava-festival" target="_blank" rel="noopener">Comprar en Joinnus</a>
+      </div>
+    </div>
+
+    <div class="bottom-bar" aria-hidden="true">
+      <div class="marquee-content">
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- AVISO DE CONFIANZA (aparece primero) -->
+    <section class="notice" id="notice" role="region" aria-label="Aviso importante">
+      <div class="row">
+        <div class="txt">
+          <p class="title">⚠️ Nota importante</p>
+          <p><b>Esta no es una página de venta ni de cobro.</b> Es una página informativa para facilitar el canje:
+          <b>copia el código <span aria-label="código">KEENSTYLES</span> y te redirige a Joinnus</b>, donde realizarás la compra de forma segura.</p>
+          <p><small>No solicitamos datos personales, contraseñas ni métodos de pago.</small></p>
+        </div>
+        <button class="btn-close" type="button" id="closeNotice" aria-label="Entendido, continuar">Entendido</button>
+      </div>
+    </section>
+
+    <div class="card" aria-live="polite">
+      <div class="badge">🎟️ Código de descuento para entradas</div>
+      <h1>Activa tu 20% de descuento</h1>
+      <p class="lead">Pega este código en el campo <b>“Código de descuento”</b> del checkout para tu 20% de descuento:</p>
+      <p class="code" id="code" title="Haz clic para copiar">KEENSTYLES</p>
+
+      <div class="row">
+        <button class="btn secondary" id="copy">Copiar código</button>
+      </div>
+
+      <p><small>Elige dónde obtener el descuento:</small></p>
+      <div class="tabs" role="tablist" aria-label="Destino">
+        <button class="tab active" id="tab-general" data-dest="general">🎫 Entradas generales</button>
+        <button class="tab" id="tab-boxes" data-dest="boxes">🧊 Boxes – Urban Stage</button>
+      </div>
+
+      <div class="row">
+        <button class="btn" id="start">Continuar</button>
+      </div>
+
+      <p class="msg" id="msg">Al abrir Joinnus, <b>pega el código</b> para tu <b>20% de descuento</b> en tus entradas.</p>
+      <p><small>Tip: si no se copia automáticamente, selecciona el código y cópialo manualmente.</small></p>
+    </div>
+  </main>
+
+  <!-- Modal estilizado -->
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-describedby="m-desc">
+    <div class="modal" tabindex="-1">
+      <div class="badge-mini">Confirmación de canje</div>
+      <h2 id="m-title">¿Listo/a para continuar?</h2>
+      <p class="sub" id="m-desc">Copiamos tu código <span class="pill">KEENSTYLES</span>. Abriremos <b id="m-dest">Entradas generales</b> para que lo <b>pegues y obtengas tu 20% de descuento</b>.</p>
+
+      <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+      <p class="sub">Abrimos en <span id="sec" class="count">5</span> segundos…</p>
+
+      <div class="actions">
+        <button class="btn" id="openNow">Abrir ahora</button>
+        <button class="btn secondary" id="cancel">Cancelar</button>
+      </div>
+
+      <button class="sr-only" id="sentinelStart">init</button>
+      <button class="sr-only" id="sentinelEnd">end</button>
+    </div>
   </div>
 
-  <!-- Campo oculto para fallback de copiado -->
-  <input id="hiddenCode" value="KEENSTYLES" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+  <!-- input oculto como fallback para copiar -->
+  <input id="hidden" value="KEENSTYLES" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
 
 <script>
 (function(){
   const CODE = "KEENSTYLES";
-  const joinnus = "https://www.joinnus.com/events/festivales/lima-flava-festival-70366/canje";
-  const copyBtn = document.getElementById('copyBtn');
-  const go = document.getElementById('go');
-  const hidden = document.getElementById('hiddenCode');
+  const URLS = {
+    general: "https://www.joinnus.com/events/festivales/lima-flava-festival-70366/canje",
+    boxes:   "https://www.joinnus.com/events/festivales/lima-flava-festival-boxes-urban-stage-70399/canje"
+  };
 
-  // Intento principal: Clipboard API (HTTPS requerido; GitHub Pages lo cumple)
-  function copyViaClipboardAPI(){
-    if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('Clipboard API no disponible');
-    return navigator.clipboard.writeText(CODE);
+  const params = new URLSearchParams(location.search);
+  const destParam = (params.get("dest")||"").toLowerCase();
+  const tParam = parseInt(params.get("t")||"",10);
+  const tDefault = Number.isFinite(tParam) && tParam>0 ? tParam : 5;
+
+  const msg = document.getElementById('msg');
+  const startBtn = document.getElementById('start');
+  const copyBtn = document.getElementById('copy');
+  const hidden = document.getElementById('hidden');
+  const tabGeneral = document.getElementById('tab-general');
+  const tabBoxes = document.getElementById('tab-boxes');
+  const tabs = [tabGeneral, tabBoxes];
+
+  const modal = document.getElementById('modal');
+  const sec = document.getElementById('sec');
+  const mDest = document.getElementById('m-dest');
+  const openNow = document.getElementById('openNow');
+  const cancel = document.getElementById('cancel');
+  const sentinelStart = document.getElementById('sentinelStart');
+  const sentinelEnd = document.getElementById('sentinelEnd');
+  const bar = document.getElementById('bar');
+
+  const notice = document.getElementById('notice');
+  const closeNotice = document.getElementById('closeNotice');
+
+  let timer = null, t = tDefault, DEST = "general";
+
+  // Cerrar aviso
+  closeNotice.addEventListener('click', ()=> notice.style.display = 'none');
+
+  function setDest(d){
+    DEST = d;
+    tabs.forEach(b=>b.classList.toggle('active', b.dataset.dest===d));
+    msg.textContent = d==="boxes"
+      ? "Destino seleccionado: Boxes – Urban Stage. Al abrir Joinnus, pega el código para tu 20% de descuento."
+      : "Destino seleccionado: Entradas generales. Al abrir Joinnus, pega el código para tu 20% de descuento.";
   }
 
-  // Fallback: seleccionar input oculto y copiar (mejor con interacción, pero probamos)
-  function copyViaHiddenInput(){
-    hidden.focus();
-    hidden.select();
-    const ok = document.execCommand && document.execCommand('copy'); // puede estar deprecado pero aún funciona en varios browsers
-    if (!ok) throw new Error('execCommand falló');
-    return Promise.resolve();
-  }
+  if(destParam==="boxes" || destParam==="general") setDest(destParam);
+  else setDest("general");
 
-  function tryCopyAuto(){
-    return copyViaClipboardAPI().catch(copyViaHiddenInput);
-  }
+  tabGeneral.addEventListener('click', ()=> setDest("general"));
+  tabBoxes.addEventListener('click', ()=> setDest("boxes"));
 
-  // Copia automático + redirección rápida
-  tryCopyAuto().finally(()=>{
-    // Pequeño delay para que el copiado termine antes de salir
-    setTimeout(()=>{ window.location.href = joinnus; }, 800);
-  });
-
-  // Botón manual por si el auto-copiado falla (iOS/Safari suele requerir gesto del usuario)
-  copyBtn.addEventListener('click', async ()=>{
-    try {
-      await copyViaClipboardAPI().catch(copyViaHiddenInput);
-      copyBtn.textContent = '¡Copiado!';
-      setTimeout(()=>{ window.location.href = joinnus; }, 300);
-    } catch(e){
-      copyBtn.textContent = 'Copia el código: ' + CODE;
+  async function copyCode(){
+    try{
+      if(navigator.clipboard?.writeText){
+        await navigator.clipboard.writeText(CODE);
+      }else{
+        hidden.focus(); hidden.select();
+        const ok = document.execCommand && document.execCommand('copy');
+        if(!ok) throw new Error('execCommand falló');
+      }
+      msg.textContent = "✅ Código copiado. Pégalo en el checkout para tu 20% de descuento.";
+      return true;
+    }catch(e){
+      msg.textContent = "ℹ️ No se pudo copiar automáticamente. Puedes seleccionar y copiar el código manualmente.";
+      return false;
     }
-  });
+  }
 
-  // Si el usuario toca el link, nos aseguramos de intentar copiar justo antes
-  go.addEventListener('click', async (e)=>{
-    try {
-      await copyViaClipboardAPI().catch(copyViaHiddenInput);
-    } catch(_) {}
-    // dejamos que siga el enlace
+  // Copiar con botón y al hacer clic en el código
+  copyBtn.addEventListener('click', copyCode);
+  document.getElementById('code').addEventListener('click', copyCode);
+
+  function openModal(){
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('show');
+    mDest.textContent = DEST === 'boxes' ? 'Boxes – Urban Stage' : 'Entradas generales';
+    t = tDefault; sec.textContent = t;
+    bar.style.width = '0%';
+    const total = tDefault;
+    timer = setInterval(()=>{
+      t--; sec.textContent = t;
+      const progress = ((total - t) / total) * 100;
+      bar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+      if(t<=0){
+        clearInterval(timer);
+        go();
+      }
+    }, 1000);
+    setTimeout(()=>sentinelStart.focus(), 0);
+  }
+  function closeModal(){
+    if(timer) clearInterval(timer);
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    startBtn.disabled = false;
+  }
+  function go(){ window.location.href = URLS[DEST]; }
+
+  sentinelStart.addEventListener('focus', ()=> openNow.focus());
+  sentinelEnd.addEventListener('focus', ()=> cancel.focus());
+
+  startBtn.addEventListener('click', async ()=>{
+    startBtn.disabled = true;
+    await copyCode();
+    openModal();
   });
+  openNow.addEventListener('click', go);
+  cancel.addEventListener('click', closeModal);
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
 })();
 </script>
-
-<noscript>
-  <p>JavaScript desactivado: entra a
-    <a href="https://www.joinnus.com/events/festivales/lima-flava-festival-70366/canje">Joinnus</a>
-    y pega el código <strong>KEENSTYLES</strong> en “Código de descuento”.</p>
-</noscript>
 </body>
 </html>
