@@ -330,8 +330,8 @@
     DEST = d;
     tabs.forEach(b=>b.classList.toggle('active', b.dataset.dest===d));
     msg.textContent = d==="boxes"
-      ? "Destino seleccionado: Boxes – Urban Stage. Al abrir Joinnus, pega el código para tu 20% de descuento."
-      : "Destino seleccionado: Entradas generales. Al abrir Joinnus, pega el código para tu 20% de descuento.";
+      ? "Destino seleccionado: Boxes – Urban Stage. Al seleccionar continuar se abrira la pagina oficial de joinnus, pega el código para tu 20% de descuento."
+      : "Destino seleccionado: Entradas generales. Al seleccionar continuar se abrira la pagina oficial de joinnus, pega el código para tu 20% de descuento.";
   }
 
   if(destParam==="boxes" || destParam==="general") setDest(destParam);
