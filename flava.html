@@ -296,4 +296,114 @@
 <script>
 (function(){
   const CODE = "KEENSTYLES";
-  const U
+  const URLS = {
+    general: "https://www.joinnus.com/events/festivales/lima-flava-festival-70366/canje",
+    boxes:   "https://www.joinnus.com/events/festivales/lima-flava-festival-boxes-urban-stage-70399/canje"
+  };
+
+  const params = new URLSearchParams(location.search);
+  const destParam = (params.get("dest")||"").toLowerCase();
+  const tParam = parseInt(params.get("t")||"",10);
+  const tDefault = Number.isFinite(tParam) && tParam>0 ? tParam : 5;
+
+  const msg = document.getElementById('msg');
+  const startBtn = document.getElementById('start');
+  const copyBtn = document.getElementById('copy');
+  const hidden = document.getElementById('hidden');
+  const tabGeneral = document.getElementById('tab-general');
+  const tabBoxes = document.getElementById('tab-boxes');
+  const tabs = [tabGeneral, tabBoxes];
+
+  const modal = document.getElementById('modal');
+  const sec = document.getElementById('sec');
+  const mDest = document.getElementById('m-dest');
+  const openNow = document.getElementById('openNow');
+  const cancel = document.getElementById('cancel');
+  const sentinelStart = document.getElementById('sentinelStart');
+  const sentinelEnd = document.getElementById('sentinelEnd');
+  const bar = document.getElementById('bar');
+
+  const notice = document.getElementById('notice');
+  const closeNotice = document.getElementById('closeNotice');
+
+  let timer = null, t = tDefault, DEST = "general";
+
+  // Cerrar aviso
+  closeNotice.addEventListener('click', ()=> notice.style.display = 'none');
+
+  function setDest(d){
+    DEST = d;
+    tabs.forEach(b=>b.classList.toggle('active', b.dataset.dest===d));
+    msg.textContent = d==="boxes"
+      ? "Destino seleccionado: Boxes – Urban Stage. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento."
+      : "Destino seleccionado: Entradas generales. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento.";
+  }
+
+  if(destParam==="boxes" || destParam==="general") setDest(destParam);
+  else setDest("general");
+
+  tabGeneral.addEventListener('click', ()=> setDest("general"));
+  tabBoxes.addEventListener('click', ()=> setDest("boxes"));
+
+  async function copyCode(){
+    try{
+      if(navigator.clipboard?.writeText){
+        await navigator.clipboard.writeText(CODE);
+      }else{
+        hidden.focus(); hidden.select();
+        const ok = document.execCommand && document.execCommand('copy');
+        if(!ok) throw new Error('execCommand falló');
+      }
+      msg.textContent = "✅ Código copiado. Pégalo en el checkout para tu 20% de descuento.";
+      return true;
+    }catch(e){
+      msg.textContent = "ℹ️ No se pudo copiar automáticamente. Puedes seleccionar y copiar el código manualmente.";
+      return false;
+    }
+  }
+
+  // Copiar con botón y al hacer clic en el código
+  copyBtn.addEventListener('click', copyCode);
+  document.getElementById('code').addEventListener('click', copyCode);
+
+  function openModal(){
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('show');
+    mDest.textContent = DEST === 'boxes' ? 'Boxes – Urban Stage' : 'Entradas generales';
+    t = tDefault; sec.textContent = t;
+    bar.style.width = '0%';
+    const total = tDefault;
+    timer = setInterval(()=>{
+      t--; sec.textContent = t;
+      const progress = ((total - t) / total) * 100;
+      bar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+      if(t<=0){
+        clearInterval(timer);
+        go();
+      }
+    }, 1000);
+    setTimeout(()=>sentinelStart.focus(), 0);
+  }
+  function closeModal(){
+    if(timer) clearInterval(timer);
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    startBtn.disabled = false;
+  }
+  function go(){ window.location.href = URLS[DEST]; }
+
+  sentinelStart.addEventListener('focus', ()=> openNow.focus());
+  sentinelEnd.addEventListener('focus', ()=> cancel.focus());
+
+  startBtn.addEventListener('click', async ()=>{
+    startBtn.disabled = true;
+    await copyCode();
+    openModal();
+  });
+  openNow.addEventListener('click', go);
+  cancel.addEventListener('click', closeModal);
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
+})();
+</script>
+</body>
+</html>
