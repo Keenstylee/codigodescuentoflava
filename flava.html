@@ -13,8 +13,8 @@
       --radius:28px;
 
       /* Colores pedidos */
-      --btn-pink:#ff4f7d;   /* Entradas generales */
-      --btn-blue:#7fb2ff;   /* Boxes */
+      --btn-pink:#ff4f7d;   /* Comprar entradas */
+      --btn-blue:#7fb2ff;   /* Comprar box */
 
       /* Redes */
       --brand-orange:#ff6400;  /* TikTok */
@@ -42,17 +42,19 @@
     .titulo{font-family:'De Fonte Plus Demi Gras', sans-serif; font-size:1.2rem; line-height:1}
     .fecha{font-size:1rem; text-align:right; line-height:1}
 
+    /* Marquee de texto en movimiento */
+    .marquee-content{
+      display:inline-block; white-space:nowrap; animation:scroll 40s linear infinite;
+      font-size:1rem; text-transform:uppercase; font-weight: bold;
+    }
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
     .bottom-bar{
       position:relative; overflow:hidden; height:2.2rem;
       border-top:2px solid var(--flava-black);
       border-bottom:2px solid var(--flava-black);
       background:var(--flava-yellow); display:flex; align-items:center;
     }
-    .marquee-content{
-      display:inline-block; white-space:nowrap; animation:scroll 40s linear infinite;
-      font-size:1rem; text-transform:uppercase;
-    }
-    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
     main{display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.2rem 1rem 5rem; text-align:center}
 
@@ -134,52 +136,25 @@
     .msg{margin-top:10px; opacity:.95}
     small{opacity:.8}
 
-    .presentado-por{position:fixed; bottom:22px; left:22px; font-size:.75rem; font-weight:bold; line-height:1.25}
-    .presentado-por img{margin-top:.4rem; max-width:220px; height:auto}
-
-    /* ===== Modal ===== */
-    .modal-backdrop{
-      position:fixed; inset:0;
-      background:radial-gradient(1200px 1200px at 50% 40%, rgba(255,255,255,.85), rgba(214,255,0,.7) 60%, rgba(214,255,0,.1) 100%);
-      backdrop-filter:saturate(110%) blur(2px);
-      display:none; align-items:center; justify-content:center;
-      padding:16px; z-index:50;
+    /* Modal de advertencia */
+    .modal-warning {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 100;
     }
-    .modal{
-      position:relative;
-      background:#fff;
-      border:3px solid var(--flava-black);
-      border-radius:24px;
-      width:min(92%,620px);
-      padding:22px;
-      text-align:center;
-      box-shadow:
-        0 0 0 2px #fff inset,
-        0 10px 0 var(--flava-black),
-        0 20px 30px rgba(0,0,0,.15);
+    .modal-warning .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
     }
-    .modal:before,.modal:after{
-      content:""; position:absolute; width:18px; height:18px; border-radius:50%;
-      background:var(--flava-black);
-      top:-9px;
-    }
-    .modal:before{left:-9px}
-    .modal:after{right:-9px}
-    .modal h2{
-      margin:.2rem 0 .6rem;
-      text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; letter-spacing:.5px;
-    }
-    .modal .sub{margin:0 auto .8rem; max-width:520px; line-height:1.35;}
-    .pill{display:inline-block; padding:.25em .6em; border:3px dashed var(--flava-black);
-          border-radius:12px; font-weight:800; letter-spacing:.5px; background:#fff;}
-    .badge-mini{display:inline-block; font-weight:700; font-size:.8rem; padding:.2em .6em;
-      border-radius:999px; border:2px solid var(--flava-black); background:#fff; margin-bottom:.4rem;}
-    .progress{margin:.6rem auto 0; height:14px; width:min(92%,460px);
-      border:2px solid var(--flava-black); border-radius:999px; background:#fff; overflow:hidden; box-shadow:inset 0 2px 0 rgba(0,0,0,.06);}
-
-    .actions{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:14px}
-    .modal-backdrop.show{display:flex}
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;}
 
     /* Botones de redes */
     .btn.tiktok{ background:var(--brand-orange); color:#fff; border-color:#000; }
@@ -231,10 +206,10 @@
       </div>
     </div>
 
-    <div class="bottom-bar" aria-hidden="true">
+    <!-- Marquee de texto en movimiento -->
+    <div class="bottom-bar">
       <div class="marquee-content">
-        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
-        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
+        LA MÚSICA UNE, EL RITMO BAILA • LA MÚSICA UNE, EL RITMO BAILA •
       </div>
     </div>
   </header>
@@ -260,24 +235,24 @@
     <div class="card" aria-live="polite">
       <div class="badge">🎟️ Código de descuento para entradas</div>
       <h1>Activa tu 20% de descuento</h1>
-      <p class="lead">Copia el siguiente código, selecciona el tipo de entrada en la que quieres usar el código para tu descuento y dale continuar para poder pegar el código:</p>
+      <p class="lead"><b>Copia el siguiente código</b>, <b>selecciona el tipo de entrada</b> en la que quieres usar el código para tu <b>descuento</b> y dale <b>continuar</b> para poder <b>pegar el código</b>:</p>
       <p class="code pulse" id="code" title="Haz clic para copiar">KEENSTYLES</p>
 
       <div class="row">
         <button class="btn secondary pulse" id="copy">Copiar código</button>
       </div>
 
-      <p><small><b>Elige dónde obtener el descuento:</b></small></p>
+      <p><small><b>Elige en qué tipo de entrada obtener el descuento:</b></small></p>
       <div class="tabs" role="tablist" aria-label="Destino">
-        <button class="tab general" id="tab-general" data-dest="general">🎫 Entradas generales</button>
-        <button class="tab boxes" id="tab-boxes" data-dest="boxes">🧊 Boxes – Urban Stage</button>
+        <button class="tab general" id="tab-general" data-dest="general">🎫 Comprar entradas</button>
+        <button class="tab boxes" id="tab-boxes" data-dest="boxes">🧊 Comprar box</button>
       </div>
 
       <div class="row">
-        <button class="btn" id="start">Continuar</button>
+        <button class="btn" id="start" disabled>Continuar</button>
       </div>
 
-      <p class="msg" id="msg">Al abrir Joinnus, <b>pega el código</b> para tu <b>20% de descuento</b> en tus entradas.</p>
+      <p class="msg" id="msg"></p> <!-- Mensaje inicial vacío -->
       <p><small>Tip: si no se copia automáticamente, selecciona el código y cópialo manualmente.</small></p>
     </div>
 
@@ -337,7 +312,7 @@
   const tabBoxes = document.getElementById('tab-boxes');
   const tabs = [tabGeneral, tabBoxes];
 
-  let DEST = "general";
+  let DEST = "";
 
   function setDest(d){
     DEST = d;
@@ -348,13 +323,19 @@
       tabBoxes.classList.add('active');
     }
 
-    msg.textContent = d==="boxes"
-      ? "Destino seleccionado: Boxes – Urban Stage. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento."
-      : "Destino seleccionado: Entradas generales. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento.";
+    // Actualizamos el mensaje solo después de que se haya seleccionado el tipo de entrada
+    msg.innerHTML = `<b>Destino seleccionado:</b> ${d === "boxes" ? "Boxes – Urban Stage" : "Entradas generales"}. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento.`;
 
-    // Inicia la palpitación del botón "Continuar" cuando se elige una opción
-    startBtn.classList.add('pulse'); 
+
+    // Habilitar el botón "Continuar" solo después de que se haya copiado el código y seleccionado la entrada
+    if (DEST && copyBtn.classList.contains('copied')) {
+      startBtn.disabled = false; // Habilita el botón "Continuar"
+      startBtn.classList.add('pulse'); // Activar palpitación para "Continuar"
+    }
   }
+
+  // Inicialmente, el mensaje está vacío
+  msg.innerHTML = ""; 
 
   tabGeneral.addEventListener('click', ()=> setDest("general"));
   tabBoxes.addEventListener('click', ()=> setDest("boxes"));
@@ -363,15 +344,16 @@
     try{
       if(navigator.clipboard?.writeText){
         await navigator.clipboard.writeText(CODE);
+        copyBtn.classList.add('copied'); // Marca que el código fue copiado
       }else{
         hidden.focus(); hidden.select();
         const ok = document.execCommand && document.execCommand('copy');
         if(!ok) throw new Error('execCommand falló');
       }
-      msg.textContent = "✅ Código copiado. Pégalo en el checkout para tu 20% de descuento.";
+      msg.innerHTML = "<b>Código copiado</b>. Selecciona el tipo de entrada.";
       return true;
     }catch(e){
-      msg.textContent = "ℹ️ No se pudo copiar automáticamente. Puedes seleccionar y copiar el código manualmente.";
+      msg.innerHTML = "<b>ℹ️ No se pudo copiar automáticamente</b>. Puedes seleccionar y copiar el código manualmente.";
       return false;
     }
   }
