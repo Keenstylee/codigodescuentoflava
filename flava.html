@@ -244,8 +244,9 @@
 
       <p><small><b>Elige en qué tipo de entrada obtener el descuento:</b></small></p>
       <div class="tabs" role="tablist" aria-label="Destino">
-        <button class="tab general" id="tab-general" data-dest="general">🎫 Comprar entradas</button>
-        <button class="tab boxes" id="tab-boxes" data-dest="boxes">🧊 Comprar box</button>
+<button class="tab general" id="tab-general" data-dest="general"><b>GENERAL - VIP - FLAVA EXP</b></button>
+<button class="tab boxes" id="tab-boxes" data-dest="boxes"><b>BOX - URBAN STAGE</b></button>
+
       </div>
 
       <div class="row">
@@ -324,7 +325,9 @@
     }
 
     // Actualizamos el mensaje solo después de que se haya seleccionado el tipo de entrada
-    msg.innerHTML = `<b>Destino seleccionado:</b> ${d === "boxes" ? "Boxes – Urban Stage" : "Entradas generales"}. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento.`;
+   msg.innerHTML = `<b>Destino seleccionado:</b> ${d === "boxes" ? "BOX - URBAN STAGE" : "GENERAL - VIP - FLAVA EXP"}. Al seleccionar <b>continuar</b> se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento.`;
+
+
 
 
     // Habilitar el botón "Continuar" solo después de que se haya copiado el código y seleccionado la entrada
