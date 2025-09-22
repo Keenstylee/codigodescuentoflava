@@ -1,194 +1,219 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLAVA FEST — Código de Descuento</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FLAVA FEST — Código de Descuento</title>
 
-<style>
-  :root{
-    --flava-yellow:#d6ff00;
-    --flava-black:#000;
-    --flava-purple:#a87efb;
-    --radius:28px;
+  <style>
+    :root{
+      --flava-yellow:#d6ff00;
+      --flava-black:#000;
+      --flava-purple:#a87efb;
+      --radius:28px;
 
-    /* Colores pedidos */
-    --btn-pink:#ff4f7d;   /* Entradas generales */
-    --btn-blue:#7fb2ff;   /* Boxes */
+      /* Colores pedidos */
+      --btn-pink:#ff4f7d;   /* Entradas generales */
+      --btn-blue:#7fb2ff;   /* Boxes */
 
-    /* Redes */
-    --brand-orange:#ff6400;  /* TikTok */
-    --brand-navy:#060f18;    /* Instagram */
-    --brand-yellow:#ffd100;  /* RaveUnity */
-  }
+      /* Redes */
+      --brand-orange:#ff6400;  /* TikTok */
+      --brand-navy:#060f18;    /* Instagram */
+      --brand-yellow:#ffd100;  /* RaveUnity */
+    }
 
-  html,body{height:100%}
-  body{
-    margin:0; padding:0;
-    font-family:'De Fonte Plus Normale','De Fonte Plus Demi Gras',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-    background:var(--flava-yellow);
-    color:var(--flava-black);
-    display:flex; flex-direction:column; min-height:100vh;
-  }
-  header{background:var(--flava-yellow)}
-  .top-bar{
-    display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
-    padding:1rem 1.25rem;
-  }
-  .menu-left, .menu-right{display:flex; gap:1rem; align-items:center}
-  .menu-left a, .menu-right a{color:var(--flava-black); text-decoration:none; text-transform:uppercase; font-size:1rem}
-  .menu-left a:hover, .menu-right a:hover{text-decoration:underline}
-  .menu-center{display:flex; align-items:center; gap:1rem; text-transform:uppercase}
-  .titulo{font-family:'De Fonte Plus Demi Gras', sans-serif; font-size:1.2rem; line-height:1}
-  .fecha{font-size:1rem; text-align:right; line-height:1}
+    html,body{height:100%}
+    body{
+      margin:0; padding:0;
+      font-family:'De Fonte Plus Normale','De Fonte Plus Demi Gras',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      background:var(--flava-yellow);
+      color:var(--flava-black);
+      display:flex; flex-direction:column; min-height:100vh;
+    }
+    header{background:var(--flava-yellow)}
+    .top-bar{
+      display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+      padding:1rem 1.25rem;
+    }
+    .menu-left, .menu-right{display:flex; gap:1rem; align-items:center}
+    .menu-left a, .menu-right a{color:var(--flava-black); text-decoration:none; text-transform:uppercase; font-size:1rem}
+    .menu-left a:hover, .menu-right a:hover{text-decoration:underline}
+    .menu-center{display:flex; align-items:center; gap:1rem; text-transform:uppercase}
+    .titulo{font-family:'De Fonte Plus Demi Gras', sans-serif; font-size:1.2rem; line-height:1}
+    .fecha{font-size:1rem; text-align:right; line-height:1}
 
-  .bottom-bar{
-    position:relative; overflow:hidden; height:2.2rem;
-    border-top:2px solid var(--flava-black);
-    border-bottom:2px solid var(--flava-black);
-    background:var(--flava-yellow); display:flex; align-items:center;
-  }
-  .marquee-content{
-    display:inline-block; white-space:nowrap; animation:scroll 40s linear infinite;
-    font-size:1rem; text-transform:uppercase;
-  }
-  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .bottom-bar{
+      position:relative; overflow:hidden; height:2.2rem;
+      border-top:2px solid var(--flava-black);
+      border-bottom:2px solid var(--flava-black);
+      background:var(--flava-yellow); display:flex; align-items:center;
+    }
+    .marquee-content{
+      display:inline-block; white-space:nowrap; animation:scroll 40s linear infinite;
+      font-size:1rem; text-transform:uppercase;
+    }
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-  main{display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.2rem 1rem 5rem; text-align:center}
+    main{display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.2rem 1rem 5rem; text-align:center}
 
-  /* ===== Aviso de confianza ===== */
-  .notice{
-    width:min(920px, 92%);
-    background:#fff;
-    border:2px solid var(--flava-black);
-    border-radius:14px;
-    box-shadow:0 6px 0 var(--flava-black);
-    padding:14px 16px;
-    margin:8px auto 18px;
-    text-align:left;
-  }
-  .notice .row{display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
-  .notice .txt{flex:1 1 520px}
-  .notice .title{font-weight:800; text-transform:uppercase; margin:0 0 4px}
-  .notice p{margin:.25rem 0}
-  .notice .btn-close{
-    appearance:none; background:#fff; color:var(--flava-black);
-    border:2px solid var(--flava-black); border-radius:999px; padding:10px 14px;
-    font-weight:800; text-transform:uppercase; cursor:pointer; white-space:nowrap;
-  }
-  .notice .btn-close:hover{background:var(--flava-purple); color:var(--flava-black)}
-  .notice small{opacity:.85}
+    /* ===== Aviso de confianza ===== */
+    .notice{
+      width:min(920px, 92%);
+      background:#fff;
+      border:2px solid var(--flava-black);
+      border-radius:14px;
+      box-shadow:0 6px 0 var(--flava-black);
+      padding:14px 16px;
+      margin:8px auto 18px;
+      text-align:left;
+    }
+    .notice .row{display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+    .notice .txt{flex:1 1 520px}
+    .notice .title{font-weight:800; text-transform:uppercase; margin:0 0 4px}
+    .notice p{margin:.25rem 0}
+    .notice .btn-close{
+      appearance:none; background:#fff; color:var(--flava-black);
+      border:2px solid var(--flava-black); border-radius:999px; padding:10px 14px;
+      font-weight:800; text-transform:uppercase; cursor:pointer; white-space:nowrap;
+    }
+    .notice .btn-close:hover{background:var(--flava-purple); color:var(--flava-black)}
+    .notice small{opacity:.85}
 
-  /* ===== Card principal ===== */
-  .card{
-    border:2px solid var(--flava-black);
-    background:#fff;
-    border-radius:16px;
-    padding:22px;
-    box-shadow:0 6px 0 var(--flava-black);
-    max-width:860px; width:min(92%,860px);
-  }
-  .badge{display:inline-block; font-weight:700; font-size:.9rem; padding:.25em .6em;
-    border-radius:999px; border:2px solid var(--flava-black); margin-bottom:10px; background:#fff}
-  h1{margin:.2rem 0 1rem; text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; line-height:1.05}
-  .lead{margin:.25rem 0 1rem}
+    /* ===== Card principal ===== */
+    .card{
+      border:2px solid var(--flava-black);
+      background:#fff;
+      border-radius:16px;
+      padding:22px;
+      box-shadow:0 6px 0 var(--flava-black);
+      max-width:860px; width:min(92%,860px);
+    }
+    .badge{display:inline-block; font-weight:700; font-size:.9rem; padding:.25em .6em;
+      border-radius:999px; border:2px solid var(--flava-black); margin-bottom:10px; background:#fff}
+    h1{margin:.2rem 0 1rem; text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; line-height:1.05}
+    .lead{margin:.25rem 0 1rem}
 
-  /* Código lila, texto blanco y BORDE PUNTEADO NEGRO */
-  .code{
-    display:inline-block; font-weight:800; font-size:1.9rem; letter-spacing:.6px;
-    padding:.35em .7em; border:3px dashed var(--flava-black); border-radius:12px; user-select:all;
-    background:var(--flava-purple); color:#fff; cursor:pointer;
-    text-shadow:0 1px 0 rgba(0,0,0,.1);
-  }
+    /* Código lila, texto blanco y BORDE PUNTEADO NEGRO */
+    .code{
+      display:inline-block; font-weight:800; font-size:1.9rem; letter-spacing:.6px;
+      padding:.35em .7em; border:3px dashed var(--flava-black); border-radius:12px; user-select:all;
+      background:var(--flava-purple); color:#fff; cursor:pointer;
+      text-shadow:0 1px 0 rgba(0,0,0,.1);
+    }
 
-  .row{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:.6rem 0}
-  .btn{
-    display:inline-block; padding:14px 22px; border-radius:var(--radius);
-    text-decoration:none; border:2px solid var(--flava-black); cursor:pointer; background:var(--flava-black); color:#fff;
-    letter-spacing:.4px; text-transform:uppercase; font-weight:700;
-    box-shadow:0 4px 0 #000;
-  }
-  .btn.secondary{background:#fff; color:var(--flava-black)}
-  .btn:disabled{opacity:.65; cursor:not-allowed}
-  .btn:hover{filter:brightness(1.02); transform:translateY(-1px)}
+    .row{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:.6rem 0}
+    .btn{
+      display:inline-block; padding:14px 22px; border-radius:var(--radius);
+      text-decoration:none; border:2px solid var(--flava-black); cursor:pointer; background:var(--flava-black); color:#fff;
+      letter-spacing:.4px; text-transform:uppercase; font-weight:700;
+      box-shadow:0 4px 0 #000;
+    }
+    .btn.secondary{background:#fff; color:var(--flava-black)}
+    .btn:disabled{opacity:.65; cursor:not-allowed}
+    .btn:hover{filter:brightness(1.02); transform:translateY(-1px)}
 
-  /* ===== Tabs UNIFORMES (idénticos salvo color de fondo) ===== */
-  .tabs{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:.5rem 0 1rem}
-  .tab{
-    padding:10px 14px; border-radius:999px;
-    border:2px solid var(--flava-black);
-    cursor:pointer; text-transform:uppercase; font-weight:700; color:#000;
-    box-shadow:0 4px 0 var(--flava-black);
-    transition:transform .08s ease;
-  }
-  .tab:hover{transform:translateY(-1px)}
-  .tab.general{ background:var(--btn-pink); }
-  .tab.boxes{  background:var(--btn-blue); }
-  .tab.active{ outline:2px solid var(--flava-black); outline-offset:-2px; }
+    /* ===== Tabs UNIFORMES (idénticos salvo color de fondo) ===== */
+    .tabs{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin:.5rem 0 1rem}
+    .tab{
+      padding:10px 14px; border-radius:999px;
+      border:2px solid var(--flava-black);
+      cursor:pointer; text-transform:uppercase; font-weight:700; color:#000;
+      box-shadow:0 4px 0 var(--flava-black);
+      transition:transform .08s ease;
+      transition: border 0.3s ease;
+    }
+    .tab:hover{transform:translateY(-1px)}
+    .tab.general{ background:var(--btn-pink); }
+    .tab.boxes{  background:var(--btn-blue); }
+    .tab.active{
+      transform: scale(1.1); /* Aumenta el tamaño del botón */
+      border: 3px solid var(--flava-purple); /* Borde llamativo al seleccionar */
+      outline: none;
+    }
 
-  .msg{margin-top:10px; opacity:.95}
-  small{opacity:.8}
+    .msg{margin-top:10px; opacity:.95}
+    small{opacity:.8}
 
-  .presentado-por{position:fixed; bottom:22px; left:22px; font-size:.75rem; font-weight:bold; line-height:1.25}
-  .presentado-por img{margin-top:.4rem; max-width:220px; height:auto}
+    .presentado-por{position:fixed; bottom:22px; left:22px; font-size:.75rem; font-weight:bold; line-height:1.25}
+    .presentado-por img{margin-top:.4rem; max-width:220px; height:auto}
 
-  /* ===== Modal ===== */
-  .modal-backdrop{
-    position:fixed; inset:0;
-    background:radial-gradient(1200px 1200px at 50% 40%, rgba(255,255,255,.85), rgba(214,255,0,.7) 60%, rgba(214,255,0,.1) 100%);
-    backdrop-filter:saturate(110%) blur(2px);
-    display:none; align-items:center; justify-content:center;
-    padding:16px; z-index:50;
-  }
-  .modal{
-    position:relative;
-    background:#fff;
-    border:3px solid var(--flava-black);
-    border-radius:24px;
-    width:min(92%,620px);
-    padding:22px;
-    text-align:center;
-    box-shadow:
-      0 0 0 2px #fff inset,
-      0 10px 0 var(--flava-black),
-      0 20px 30px rgba(0,0,0,.15);
-  }
-  .modal:before,.modal:after{
-    content:""; position:absolute; width:18px; height:18px; border-radius:50%;
-    background:var(--flava-black);
-    top:-9px;
-  }
-  .modal:before{left:-9px}
-  .modal:after{right:-9px}
-  .modal h2{
-    margin:.2rem 0 .6rem;
-    text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; letter-spacing:.5px;
-  }
-  .modal .sub{margin:0 auto .8rem; max-width:520px; line-height:1.35;}
-  .pill{display:inline-block; padding:.25em .6em; border:3px dashed var(--flava-black);
-        border-radius:12px; font-weight:800; letter-spacing:.5px; background:#fff;}
-  .badge-mini{display:inline-block; font-weight:700; font-size:.8rem; padding:.2em .6em;
-    border-radius:999px; border:2px solid var(--flava-black); background:#fff; margin-bottom:.4rem;}
-  .progress{margin:.6rem auto 0; height:14px; width:min(92%,460px);
-    border:2px solid var(--flava-black); border-radius:999px; background:#fff; overflow:hidden; box-shadow:inset 0 2px 0 rgba(0,0,0,.06);}
-  .bar{height:100%; width:0%; background:linear-gradient(90deg, var(--flava-black), var(--flava-purple)); transition:width .2s linear;}
-  .actions{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:14px}
-  .modal-backdrop.show{display:flex}
-  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;}
+    /* ===== Modal ===== */
+    .modal-backdrop{
+      position:fixed; inset:0;
+      background:radial-gradient(1200px 1200px at 50% 40%, rgba(255,255,255,.85), rgba(214,255,0,.7) 60%, rgba(214,255,0,.1) 100%);
+      backdrop-filter:saturate(110%) blur(2px);
+      display:none; align-items:center; justify-content:center;
+      padding:16px; z-index:50;
+    }
+    .modal{
+      position:relative;
+      background:#fff;
+      border:3px solid var(--flava-black);
+      border-radius:24px;
+      width:min(92%,620px);
+      padding:22px;
+      text-align:center;
+      box-shadow:
+        0 0 0 2px #fff inset,
+        0 10px 0 var(--flava-black),
+        0 20px 30px rgba(0,0,0,.15);
+    }
+    .modal:before,.modal:after{
+      content:""; position:absolute; width:18px; height:18px; border-radius:50%;
+      background:var(--flava-black);
+      top:-9px;
+    }
+    .modal:before{left:-9px}
+    .modal:after{right:-9px}
+    .modal h2{
+      margin:.2rem 0 .6rem;
+      text-transform:uppercase; font-family:'De Fonte Plus Demi Gras', sans-serif; letter-spacing:.5px;
+    }
+    .modal .sub{margin:0 auto .8rem; max-width:520px; line-height:1.35;}
+    .pill{display:inline-block; padding:.25em .6em; border:3px dashed var(--flava-black);
+          border-radius:12px; font-weight:800; letter-spacing:.5px; background:#fff;}
+    .badge-mini{display:inline-block; font-weight:700; font-size:.8rem; padding:.2em .6em;
+      border-radius:999px; border:2px solid var(--flava-black); background:#fff; margin-bottom:.4rem;}
+    .progress{margin:.6rem auto 0; height:14px; width:min(92%,460px);
+      border:2px solid var(--flava-black); border-radius:999px; background:#fff; overflow:hidden; box-shadow:inset 0 2px 0 rgba(0,0,0,.06);}
 
-  /* Botones de redes */
-  .btn.tiktok{ background:var(--brand-orange); color:#fff; border-color:#000; }
-  .btn.instagram{ background:var(--brand-navy); color:#fff; border-color:#000; }
-  .btn.rave{ background:var(--brand-yellow); color:#000; border-color:#000; }
+    .actions{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:14px}
+    .modal-backdrop.show{display:flex}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;}
 
-  @media (max-width:768px){
-    .top-bar{grid-template-columns:1fr; text-align:center; gap:.5rem}
-    .menu-left,.menu-right{display:none}
-    .titulo{font-size:1.1rem}
-    .fecha{text-align:center}
-    .presentado-por{position:static; margin-top:1rem}
-  }
-</style>
+    /* Botones de redes */
+    .btn.tiktok{ background:var(--brand-orange); color:#fff; border-color:#000; }
+    .btn.instagram{ background:var(--brand-navy); color:#fff; border-color:#000; }
+    .btn.rave{ background:var(--brand-yellow); color:#000; border-color:#000; }
+
+    @media (max-width:768px){
+      .top-bar{grid-template-columns:1fr; text-align:center; gap:.5rem}
+      .menu-left,.menu-right{display:none}
+      .titulo{font-size:1.1rem}
+      .fecha{text-align:center}
+      .presentado-por{position:static; margin-top:1rem}
+    }
+
+    /* Animación de pulsación */
+    .pulse {
+      animation: pulse-animation 1s infinite;
+    }
+
+    @keyframes pulse-animation {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -210,16 +235,12 @@
       <div class="marquee-content">
         <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
         <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
-        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
-        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
-        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
-        <span>LA MÚSICA UNE, EL RITMO BAILA • </span>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- AVISO DE CONFIANZA -->
+    <!-- Aviso de confianza -->
     <section class="notice" id="notice" role="region" aria-label="Aviso importante">
       <div class="row">
         <div class="txt">
@@ -239,16 +260,16 @@
     <div class="card" aria-live="polite">
       <div class="badge">🎟️ Código de descuento para entradas</div>
       <h1>Activa tu 20% de descuento</h1>
-      <p class="lead">Pega este código en el campo <b>“Código de descuento”</b> del checkout para tu 20% de descuento:</p>
-      <p class="code" id="code" title="Haz clic para copiar">KEENSTYLES</p>
+      <p class="lead">Copia el siguiente código, selecciona el tipo de entrada en la que quieres usar el código para tu descuento y dale continuar para poder pegar el código:</p>
+      <p class="code pulse" id="code" title="Haz clic para copiar">KEENSTYLES</p>
 
       <div class="row">
-        <button class="btn secondary" id="copy">Copiar código</button>
+        <button class="btn secondary pulse" id="copy">Copiar código</button>
       </div>
 
-      <p><small>Elige dónde obtener el descuento:</small></p>
+      <p><small><b>Elige dónde obtener el descuento:</b></small></p>
       <div class="tabs" role="tablist" aria-label="Destino">
-        <button class="tab general active" id="tab-general" data-dest="general">🎫 Entradas generales</button>
+        <button class="tab general" id="tab-general" data-dest="general">🎫 Entradas generales</button>
         <button class="tab boxes" id="tab-boxes" data-dest="boxes">🧊 Boxes – Urban Stage</button>
       </div>
 
@@ -260,7 +281,7 @@
       <p><small>Tip: si no se copia automáticamente, selecciona el código y cópialo manualmente.</small></p>
     </div>
 
-    <!-- ===== Sobre mí + Redes ===== -->
+    <!-- Sección ¿Quién soy? -->
     <section class="card" id="sobre-mi" style="margin-top:18px; text-align:left">
       <h2 style="margin:0 0 .5rem; text-transform:uppercase; font-family:'De Fonte Plus Demi Gras',sans-serif">¿Quién soy?</h2>
 
@@ -295,29 +316,6 @@
     </section>
   </main>
 
-  <!-- Modal estilizado -->
-  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-describedby="m-desc">
-    <div class="modal" tabindex="-1">
-      <div class="badge-mini">Confirmación de canje</div>
-      <h2 id="m-title">¿Listo/a para continuar?</h2>
-      <p class="sub" id="m-desc">Copiamos tu código <span class="pill">KEENSTYLES</span>. Abriremos <b id="m-dest">Entradas generales</b> para que lo <b>pegues y obtengas tu 20% de descuento</b>.</p>
-
-      <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
-      <p class="sub">Abrimos en <span id="sec" class="count">5</span> segundos…</p>
-
-      <div class="actions">
-        <button class="btn" id="openNow">Abrir ahora</button>
-        <button class="btn secondary" id="cancel">Cancelar</button>
-      </div>
-
-      <button class="sr-only" id="sentinelStart">init</button>
-      <button class="sr-only" id="sentinelEnd">end</button>
-    </div>
-  </div>
-
-  <!-- input oculto como fallback para copiar -->
-  <input id="hidden" value="KEENSTYLES" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
-
 <script>
 (function(){
   const CODE = "KEENSTYLES";
@@ -339,32 +337,24 @@
   const tabBoxes = document.getElementById('tab-boxes');
   const tabs = [tabGeneral, tabBoxes];
 
-  const modal = document.getElementById('modal');
-  const sec = document.getElementById('sec');
-  const mDest = document.getElementById('m-dest');
-  const openNow = document.getElementById('openNow');
-  const cancel = document.getElementById('cancel');
-  const sentinelStart = document.getElementById('sentinelStart');
-  const sentinelEnd = document.getElementById('sentinelEnd');
-  const bar = document.getElementById('bar');
-
-  const notice = document.getElementById('notice');
-  const closeNotice = document.getElementById('closeNotice');
-
-  let timer = null, t = tDefault, DEST = "general";
-
-  closeNotice.addEventListener('click', ()=> notice.style.display = 'none');
+  let DEST = "general";
 
   function setDest(d){
     DEST = d;
-    tabs.forEach(b=>b.classList.toggle('active', b.dataset.dest===d));
+    tabs.forEach(b=>b.classList.remove('active'));
+    if (d === "general") {
+      tabGeneral.classList.add('active');
+    } else {
+      tabBoxes.classList.add('active');
+    }
+
     msg.textContent = d==="boxes"
       ? "Destino seleccionado: Boxes – Urban Stage. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento."
       : "Destino seleccionado: Entradas generales. Al seleccionar continuar se abrirá la página oficial de Joinnus; pega el código para tu 20% de descuento.";
-  }
 
-  if(destParam==="boxes" || destParam==="general") setDest(destParam);
-  else setDest("general");
+    // Inicia la palpitación del botón "Continuar" cuando se elige una opción
+    startBtn.classList.add('pulse'); 
+  }
 
   tabGeneral.addEventListener('click', ()=> setDest("general"));
   tabBoxes.addEventListener('click', ()=> setDest("boxes"));
@@ -387,44 +377,14 @@
   }
 
   copyBtn.addEventListener('click', copyCode);
-  document.getElementById('code').addEventListener('click', copyCode);
 
-  function openModal(){
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.modal-backdrop').classList.add('show');
-    mDest.textContent = DEST === 'boxes' ? 'Boxes – Urban Stage' : 'Entradas generales';
-    let t = tDefault; sec.textContent = t;
-    bar.style.width = '0%';
-    const total = tDefault;
-    const interval = setInterval(()=>{
-      t--; sec.textContent = t;
-      const progress = ((total - t) / total) * 100;
-      bar.style.width = Math.min(100, Math.max(0, progress)) + '%';
-      if(t<=0){
-        clearInterval(interval);
-        window.location.href = URLS[DEST];
-      }
-    }, 1000);
-    setTimeout(()=>document.getElementById('sentinelStart')?.focus(), 0);
-  }
-
-  document.getElementById('openNow').addEventListener('click', ()=>{ window.location.href = URLS[DEST]; });
-  document.getElementById('cancel').addEventListener('click', ()=>{
-    document.querySelector('.modal-backdrop').classList.remove('show');
-    document.body.style.overflow='';
-    startBtn.disabled=false;
+  const closeNotice = document.getElementById('closeNotice');
+  closeNotice.addEventListener('click', () => {
+    document.getElementById('notice').style.display = 'none';
   });
 
-  window.addEventListener('keydown', (e)=>{
-    if(e.key==='Escape' && document.querySelector('.modal-backdrop').classList.contains('show')){
-      document.getElementById('cancel').click();
-    }
-  });
-
-  startBtn.addEventListener('click', async ()=>{
-    startBtn.disabled = true;
-    await copyCode();
-    openModal();
+  startBtn.addEventListener('click', () => {
+    window.location.href = URLS[DEST]; // Redirige inmediatamente al URL seleccionado
   });
 })();
 </script>
